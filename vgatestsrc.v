@@ -20,7 +20,9 @@ module vgatestsrc(
 			  BPP = BITS_PER_PIXEL;
 
 
+	//localparam turn_on = 1'b1, turn_off = 1'b0;
 
+	//always (posedge clk)
 
 	// Definição das cores básicas
 	wire [BPP-1:0] white, black;
@@ -72,7 +74,7 @@ module vgatestsrc(
 
 	always @(posedge i_pixclk)
 		if (i_newline)
-			o_pixel <= black; // Linha nova: borda branca
+			o_pixel <= black; // Linha: borda
 		else if (i_rd)
 		begin
 			begin

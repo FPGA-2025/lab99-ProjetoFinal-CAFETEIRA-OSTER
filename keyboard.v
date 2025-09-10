@@ -61,6 +61,14 @@ module keyboard (
 			else
 				led_on <= 0;
 
+			// Atualiza key_index: pega o índice da primeira tecla pressionada
+			key_index = 0;
+			for (i = 0; i < 16; i = i + 1) begin
+				if (key_matrix[i]) begin
+					key_index <= i;
+				end
+			end
+
 			// Detecta borda de subida: clique
 			if ((|key_matrix) && !prev_any_key)
 				key_click <= 1;
